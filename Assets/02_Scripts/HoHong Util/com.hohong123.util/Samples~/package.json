@@ -1,0 +1,48 @@
+{
+  "name": "com.hohong123.util",
+  "displayName": "Hohong123 Util",
+  "version": "0.1.0",
+  "unity": "2021.3",
+  "description": "Pooling, Sound, UI, 2D, Collection, Logger utilities.",
+  "author": {
+    "name": "HoHong123",
+    "url": "https://github.com/HoHong123"
+  },
+  "samples": [
+    {
+      "displayName": "",
+      "description": "Sample content.",
+      "path": "Samples~/"
+    },
+    {
+      "displayName": "Dropdown",
+      "description": "Sample content.",
+      "path": "Samples~/Dropdown"
+    },
+    {
+      "displayName": "Pooling",
+      "description": "Basic object pooling example (UnityPoolMaster/Entity).",
+      "path": "Samples~/Pooling"
+    },
+    {
+      "displayName": "Popup",
+      "description": "Sample content.",
+      "path": "Samples~/Popup"
+    },
+    {
+      "displayName": "Scrollview",
+      "description": "UI Scrollview demo and tester scripts.",
+      "path": "Samples~/Scrollview"
+    },
+    {
+      "displayName": "Spinner",
+      "description": "Sample content.",
+      "path": "Samples~/Spinner"
+    },
+    {
+      "displayName": "Package.json",
+      "description": "Sample content.",
+      "path": "Samples~/package.json"
+    }
+  ]
+}

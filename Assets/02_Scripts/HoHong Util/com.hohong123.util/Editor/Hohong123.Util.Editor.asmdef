@@ -1,0 +1,13 @@
+{
+  "name": "Hohong123.Util.Editor",
+  "rootNamespace": "Util.Editor",
+  "includePlatforms": [
+    "Editor"
+  ],
+  "autoReferenced": true,
+  "references": [
+    "Hohong123.Util",
+    "Unity.TextMeshPro",
+    "Unity.TextMeshPro.Editor"
+  ]
+}

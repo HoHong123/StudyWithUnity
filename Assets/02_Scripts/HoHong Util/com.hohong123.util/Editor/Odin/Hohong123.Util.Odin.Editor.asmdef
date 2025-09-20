@@ -1,0 +1,13 @@
+{
+  "name": "Hohong123.Util.Odin.Editor",
+  "rootNamespace": "Util.Odin.Editor",
+  "includePlatforms": [
+		"Editor"
+	],
+  "references": [
+		"Hohong123.Util"
+	],
+  "defineConstraints": [
+		"ODIN_INSPECTOR"
+	]
+}

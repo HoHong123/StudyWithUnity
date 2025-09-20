@@ -1,0 +1,10 @@
+{
+	"name": "Hohong123.Util",
+	"rootNamespace": "Util",
+	"autoReferenced": true,
+	"noEngineReferences": false,
+	"references": [
+		"UniTask",
+		"Unity.TextMeshPro"
+	]
+}
