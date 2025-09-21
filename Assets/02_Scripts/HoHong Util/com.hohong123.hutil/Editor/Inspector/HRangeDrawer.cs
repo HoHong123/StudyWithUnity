@@ -40,14 +40,14 @@ namespace HEditor.Inspector {
             bool isDrawChanged = EditorGUI.EndChangeCheck();
 
             // 사용자가 값을 수정했든 아니든, 항상 제한 범위로 스냅(텍스트 에디트 후에도 정상화)
-            ClampProperty(property, minAttribute, maxAttribute);
+            _ClampProperty(property, minAttribute, maxAttribute);
 
             // 텍스트 입력 중에도 즉시 적용되도록 SerializedObject 반영
             if (isDrawChanged)
                 property.serializedObject.ApplyModifiedProperties();
         }
 
-        private static void ClampProperty(SerializedProperty property, HMinAttribute minAttribute, HMaxAttribute maxAttribute) {
+        private static void _ClampProperty(SerializedProperty property, HMinAttribute minAttribute, HMaxAttribute maxAttribute) {
             bool hasMin = minAttribute != null;
             bool hasMax = maxAttribute != null;
 

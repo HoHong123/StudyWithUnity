@@ -29,15 +29,15 @@ namespace HEditor.Inspector {
             new Dictionary<string, CachedListData>(256);
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
-            if (!IsArrayOrList(property))
+            if (!_IsArrayOrList(property))
                 return EditorGUI.GetPropertyHeight(property, label, includeChildren: true);
 
             // 멀티-오브젝트 편집은 안전하게 기본 동작
             if (property.serializedObject.isEditingMultipleObjects)
                 return EditorGUI.GetPropertyHeight(property, label, includeChildren: true);
 
-            var key = MakeKey(property);
-            var cached = GetOrBuildCache(property, key);
+            var key = _MakeKey(property);
+            var cached = _GetOrBuildCache(property, key);
 
             // 접힌 상태면 한 줄만
             if (!cached.isExpanded)
@@ -73,7 +73,7 @@ namespace HEditor.Inspector {
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
             // 배열/리스트가 아니면 기본 필드
-            if (!IsArrayOrList(property)) {
+            if (!_IsArrayOrList(property)) {
                 EditorGUI.PropertyField(position, property, label, includeChildren: true);
                 return;
             }
@@ -84,17 +84,18 @@ namespace HEditor.Inspector {
                 return;
             }
 
-            var key = MakeKey(property);
-            var cached = GetOrBuildCache(property, key);
+            var key = _MakeKey(property);
+            var cached = _GetOrBuildCache(property, key);
 
             // 헤더 라벨 유틸 적용
             using (HDisplayLabelWidthUtil.UseIfAny(fieldInfo)) {
                 label = HDisplayLabelUtil.ResolveLabel(fieldInfo, label);
-                DrawList(position, property, label, cached);
+                _DrawList(position, property, label, cached);
             }
         }
 
-        private void DrawList(Rect rect, SerializedProperty property, GUIContent label, CachedListData cached) {
+
+        private void _DrawList(Rect rect, SerializedProperty property, GUIContent label, CachedListData cached) {
             // 접기/펼치기 토글
             Rect foldoutRect = new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight);
             if (!ReferenceEquals(label, GUIContent.none)) {
@@ -113,7 +114,7 @@ namespace HEditor.Inspector {
 
             if (!cached.options.UsePaging) {
                 // ReorderableList 경로
-                EnsureReorderableList(property, cached);
+                _EnsureReorderableList(property, cached);
                 if (cached.reorderableList != null) {
                     cached.reorderableList.DoList(rect);
                 }
@@ -121,10 +122,10 @@ namespace HEditor.Inspector {
             }
 
             // --- 페이징 수동 경로 ---
-            DrawPagedList(rect, property, cached);
+            _DrawPagedList(rect, property, cached);
         }
 
-        private void DrawPagedList(Rect rect, SerializedProperty property, CachedListData cached) {
+        private void _DrawPagedList(Rect rect, SerializedProperty property, CachedListData cached) {
             int totalCount = property.arraySize;
             int pageSize = cached.options.PageSize;
             int totalPages = Mathf.Max(1, Mathf.CeilToInt(totalCount / (float)pageSize));
@@ -133,7 +134,7 @@ namespace HEditor.Inspector {
             // 헤더(툴바)
             Rect toolbarRect = new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight);
             using (new EditorGUI.DisabledScope(cached.options.HideHeader)) {
-                DrawToolbar(toolbarRect, property, cached, totalPages);
+                _DrawToolbar(toolbarRect, property, cached, totalPages);
             }
 
             rect.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
@@ -149,7 +150,7 @@ namespace HEditor.Inspector {
                 float elementHeight = EditorGUI.GetPropertyHeight(element, includeChildren: true);
                 Rect elementRect = new Rect(rect.x, rect.y, rect.width, elementHeight);
 
-                DrawElementWithOptionalIndex(elementRect, element, elementIndex, cached.options.ShowIndexLabels);
+                _DrawElementWithOptionalIndex(elementRect, element, elementIndex, cached.options.ShowIndexLabels);
 
                 rect.y += elementHeight + 2f;
                 rect.height -= elementHeight + 2f;
@@ -157,10 +158,10 @@ namespace HEditor.Inspector {
 
             // 푸터(추가/삭제)
             Rect footerRect = new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight + 2f);
-            DrawFooter(footerRect, property, cached.options);
+            _DrawFooter(footerRect, property, cached.options);
         }
 
-        private void DrawToolbar(Rect rect, SerializedProperty property, CachedListData cached, int totalPages) {
+        private void _DrawToolbar(Rect rect, SerializedProperty property, CachedListData cached, int totalPages) {
             Rect leftRect = rect;
             leftRect.width = Mathf.Max(60f, rect.width * 0.5f);
 
@@ -192,7 +193,7 @@ namespace HEditor.Inspector {
             }
         }
 
-        private void DrawFooter(Rect rect, SerializedProperty property, HListDrawerSettingsAttribute options) {
+        private void _DrawFooter(Rect rect, SerializedProperty property, HListDrawerSettingsAttribute options) {
             float buttonWidth = 60f;
             Rect addRect = new Rect(rect.x, rect.y, buttonWidth, rect.height);
             Rect removeRect = new Rect(addRect.xMax + 4f, rect.y, buttonWidth, rect.height);
@@ -201,7 +202,7 @@ namespace HEditor.Inspector {
                 int newIndex = property.arraySize;
                 property.arraySize++;
                 var element = property.GetArrayElementAtIndex(newIndex);
-                InitializeNewElement(element);
+                _InitializeNewElement(element);
                 property.serializedObject.ApplyModifiedProperties();
             }
 
@@ -213,7 +214,7 @@ namespace HEditor.Inspector {
             }
         }
 
-        private void EnsureReorderableList(SerializedProperty property, CachedListData cached) {
+        private void _EnsureReorderableList(SerializedProperty property, CachedListData cached) {
             if (cached.reorderableList != null) return;
 
             var options = cached.options;
@@ -233,7 +234,7 @@ namespace HEditor.Inspector {
                     return;
 
                 var element = property.GetArrayElementAtIndex(index);
-                DrawElementWithOptionalIndex(rect, element, index, options.ShowIndexLabels);
+                _DrawElementWithOptionalIndex(rect, element, index, options.ShowIndexLabels);
             };
 
             list.elementHeightCallback = index => {
@@ -247,7 +248,7 @@ namespace HEditor.Inspector {
                 int newIndex = property.arraySize;
                 property.arraySize++;
                 var element = property.GetArrayElementAtIndex(newIndex);
-                InitializeNewElement(element);
+                _InitializeNewElement(element);
                 property.serializedObject.ApplyModifiedProperties();
             };
 
@@ -261,7 +262,7 @@ namespace HEditor.Inspector {
             cached.reorderableList = list;
         }
 
-        private void DrawElementWithOptionalIndex(Rect rect, SerializedProperty element, int index, bool showIndex) {
+        private void _DrawElementWithOptionalIndex(Rect rect, SerializedProperty element, int index, bool showIndex) {
             if (showIndex) {
                 const float indexWidth = 30f;
                 Rect indexRect = new Rect(rect.x, rect.y, indexWidth, EditorGUIUtility.singleLineHeight);
@@ -274,7 +275,7 @@ namespace HEditor.Inspector {
             }
         }
 
-        private static void InitializeNewElement(SerializedProperty element) {
+        private static void _InitializeNewElement(SerializedProperty element) {
             switch (element.propertyType) {
             case SerializedPropertyType.Integer:
                 element.intValue = default;
@@ -333,19 +334,19 @@ namespace HEditor.Inspector {
             }
         }
 
-        private static bool IsArrayOrList(SerializedProperty property) {
+        private static bool _IsArrayOrList(SerializedProperty property) {
             // Unity 기준: isArray=true && string 제외 => 배열/리스트
             return property.isArray && property.propertyType != SerializedPropertyType.String;
         }
 
-        private static string MakeKey(SerializedProperty property) {
+        private static string _MakeKey(SerializedProperty property) {
             int id = property.serializedObject.targetObject != null
                 ? property.serializedObject.targetObject.GetInstanceID()
                 : 0;
             return id + "|" + property.propertyPath;
         }
 
-        private CachedListData GetOrBuildCache(SerializedProperty property, string key) {
+        private CachedListData _GetOrBuildCache(SerializedProperty property, string key) {
             if (cache.TryGetValue(key, out var cached)) {
                 cached.options = (HListDrawerSettingsAttribute)attribute;
                 return cached;

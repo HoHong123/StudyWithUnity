@@ -9,21 +9,6 @@ namespace HEditor.Inspector {
         private static GUIStyle title, subtitle;
 
 
-        private static void _EnsureStyles(bool bold = true) {
-            title ??= new GUIStyle(EditorStyles.label);
-            subtitle ??= new GUIStyle(EditorStyles.miniLabel);
-
-            title.fontSize = 12;
-            title.fontStyle = bold ? FontStyle.Bold : FontStyle.Normal;
-            title.alignment = TextAnchor.MiddleLeft;
-
-            subtitle.fontSize = 10;
-            subtitle.fontStyle = FontStyle.Italic;
-            subtitle.alignment = TextAnchor.MiddleLeft;
-            subtitle.normal.textColor = new Color(0.6f, 0.6f, 0.6f);
-        }
-
-
         public override float GetHeight() {
             var attr = (HTitleAttribute)attribute;
             float height = attr.SpaceBefore + EditorGUIUtility.singleLineHeight;
@@ -62,6 +47,21 @@ namespace HEditor.Inspector {
                 EditorGUI.DrawRect(lineRect, new Color(0.3f, 0.3f, 0.3f));
                 posY += 3f;
             }
+        }
+
+
+        private static void _EnsureStyles(bool bold = true) {
+            title ??= new GUIStyle(EditorStyles.label);
+            subtitle ??= new GUIStyle(EditorStyles.miniLabel);
+
+            title.fontSize = 12;
+            title.fontStyle = bold ? FontStyle.Bold : FontStyle.Normal;
+            title.alignment = TextAnchor.MiddleLeft;
+
+            subtitle.fontSize = 10;
+            subtitle.fontStyle = FontStyle.Italic;
+            subtitle.alignment = TextAnchor.MiddleLeft;
+            subtitle.normal.textColor = new Color(0.6f, 0.6f, 0.6f);
         }
     }
 }

@@ -15,11 +15,11 @@ using UnityEngine;
 using HUtil.Inspector;
 
 namespace HEditor.Inspector {
-    /// <summary>
-    /// HOnValueChanged 전용 드로워.
-    /// </summary>
     [CustomPropertyDrawer(typeof(HOnValueChangedAttribute), useForChildren: true)]
     public class HOnValueChangedDrawer : PropertyDrawer {
+        private static readonly object converterFailureSentinel = new object();
+
+
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
             return EditorGUI.GetPropertyHeight(property, label, includeChildren: true);
         }
@@ -42,24 +42,25 @@ namespace HEditor.Inspector {
                 property.serializedObject.ApplyModifiedProperties();
 
                 if (hasAttributes) {
-                    object newValueBoxed = GetBoxedValue(property);
+                    object newValueBoxed = _GetBoxedValue(property);
 
                     UnityEngine.Object[] selectedTargets = property.serializedObject.targetObjects;
                     foreach (UnityEngine.Object selectedObject in selectedTargets) {
-                        InvokeAllCallbacks(selectedObject, onValueChangedAttributes, newValueBoxed);
+                        _InvokeAllCallbacks(selectedObject, onValueChangedAttributes, newValueBoxed);
                     }
                 }
             }
         }
 
-        private static void InvokeAllCallbacks(object targetObject, HOnValueChangedAttribute[] attributes, object newValueBoxed) {
+
+        private static void _InvokeAllCallbacks(object targetObject, HOnValueChangedAttribute[] attributes, object newValueBoxed) {
             if (targetObject == null || attributes == null) return;
             foreach (var attr in attributes) {
-                InvokeSingleCallback(targetObject, attr.MethodName, newValueBoxed);
+                _InvokeSingleCallback(targetObject, attr.MethodName, newValueBoxed);
             }
         }
 
-        private static void InvokeSingleCallback(object targetObject, string methodName, object newValueBoxed) {
+        private static void _InvokeSingleCallback(object targetObject, string methodName, object newValueBoxed) {
             if (targetObject == null || string.IsNullOrEmpty(methodName))
                 return;
 
@@ -75,8 +76,8 @@ namespace HEditor.Inspector {
             foreach (MethodInfo method in candidateMethods) {
                 var parameters = method.GetParameters();
                 if (parameters.Length == 1) {
-                    object argument = ConvertArgument(parameters[0].ParameterType, newValueBoxed);
-                    if (argument != s_converterFailureSentinel) {
+                    object argument = _ConvertArgument(parameters[0].ParameterType, newValueBoxed);
+                    if (argument != converterFailureSentinel) {
                         try { method.Invoke(targetObject, new[] { argument }); }
                         catch (Exception exception) {
                             Debug.LogException(exception);
@@ -112,14 +113,12 @@ namespace HEditor.Inspector {
             }
         }
 
-        private static readonly object s_converterFailureSentinel = new object();
-
-        private static object ConvertArgument(Type requiredType, object value) {
+        private static object _ConvertArgument(Type requiredType, object value) {
             if (value == null) {
                 // 널 허용 참조형 또는 Nullable<T>면 통과
                 if (!requiredType.IsValueType || Nullable.GetUnderlyingType(requiredType) != null)
                     return null;
-                return s_converterFailureSentinel;
+                return converterFailureSentinel;
             }
 
             Type valueType = value.GetType();
@@ -140,11 +139,11 @@ namespace HEditor.Inspector {
                 return Convert.ChangeType(value, requiredType);
             }
             catch {
-                return s_converterFailureSentinel;
+                return converterFailureSentinel;
             }
         }
 
-        private static object GetBoxedValue(SerializedProperty property) {
+        private static object _GetBoxedValue(SerializedProperty property) {
             // 가능한 범용적으로 박싱. 필요한 타입만 우선 지원.
             switch (property.propertyType) {
             case SerializedPropertyType.Integer:

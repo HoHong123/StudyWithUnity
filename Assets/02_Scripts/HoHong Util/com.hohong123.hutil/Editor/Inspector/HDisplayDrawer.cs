@@ -6,11 +6,13 @@ using UnityEngine;
 using HUtil.Inspector;
 
 namespace HEditor.Inspector {
-    /// <summary>
-    /// 단일 드로워가 HShowIf/HHideIf 모두 처리.
-    /// </summary>
-    ///  - HHideIf: 같은 필드 내 여러 HHideIf는 OR. 멀티선택 시 모든 대상이 숨김을 원할 때만 숨김.
-    ///  - HShowIf: 같은 필드 내 여러 HShowIf는 AND. 멀티선택 시 모든 대상이 전부 만족해야 표시.
+    /* =========================================================
+     * @Jason - PKH
+     * 단일 드로워가 HShowIf/HHideIf 모두 처리하는 드로워입니다.
+     * - HHideIf: 같은 필드 내 여러 HHideIf는 OR. 멀티선택 시 모든 대상이 숨김을 원할 때만 숨김.
+     * - HShowIf: 같은 필드 내 여러 HShowIf는 AND. 멀티선택 시 모든 대상이 전부 만족해야 표시.
+     * =========================================================
+     */
     [CustomPropertyDrawer(typeof(HShowIfAttribute), useForChildren: true)]
     [CustomPropertyDrawer(typeof(HHideIfAttribute), useForChildren: true)]
     public class HDisplayDrawer : PropertyDrawer {
