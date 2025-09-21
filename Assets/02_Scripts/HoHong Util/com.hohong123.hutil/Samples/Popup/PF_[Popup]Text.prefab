@@ -448,6 +448,7 @@ MonoBehaviour:
   titleBgImg: {fileID: 4232302665258117218}
   bodyBgImg: {fileID: 3672191405953360916}
   okBtn: {fileID: 7444541051794596597}
+  test: 000000000000000000000000
 --- !u!1 &5654682497779001449
 GameObject:
   m_ObjectHideFlags: 0

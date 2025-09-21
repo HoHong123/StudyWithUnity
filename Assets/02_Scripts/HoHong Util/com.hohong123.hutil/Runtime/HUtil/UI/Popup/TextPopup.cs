@@ -5,6 +5,7 @@ using TMPro;
 using PoolReturn = HUtil.Pooling.IPoolReturn<HUtil.UI.Popup.TextPopup>;
 using PoolDispose = HUtil.Pooling.IPoolDispose<HUtil.UI.Popup.TextPopup>;
 using HUtil.Inspector;
+using System.Collections.Generic;
 
 namespace HUtil.UI.Popup {
     public class TextPopup : BasePopupUi, PoolReturn, PoolDispose {

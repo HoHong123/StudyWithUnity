@@ -23,8 +23,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using HUtil.Logger;
 using HUtil.Core;
+using HUtil.Logger;
 using HUtil.Inspector;
 using HUtil.UI.Spinner;
 
@@ -85,19 +85,50 @@ namespace HUtil.UI.Popup {
         [SerializeField]
         protected Transform primeParent;
 
-        [HTitle("Logs")]
-        [SerializeField]
-        protected Queue<LogQue> logHistory = new();
-
         protected TextPopup textInstance = null;
         protected ImagePopup imgInstnace = null;
         protected VideoPopup vidInstnace = null;
 
         protected int creatStack = 0;
+        protected Queue<LogQue> logHistory = new();
+
+        public void DebugLogs() {
+#if UNITY_EDITOR
+            var builder = new System.Text.StringBuilder(512);
+            builder.AppendLine($"[PopupManager Debug] ({GetType().Name}) {nameof(DebugLogs)}");
+            builder.AppendLine($"- Background Active : {background != null && background.activeSelf}");
+            builder.AppendLine($"- TextPopup Exists  : {textInstance != null} / Active: {(textInstance != null ? textInstance.IsActive : false)}");
+            builder.AppendLine($"- ImagePopup Exists : {imgInstnace != null}");
+            builder.AppendLine($"- VideoPopup Exists : {vidInstnace != null}");
+            builder.AppendLine($"- Log Parent Childs : {(logParent != null ? logParent.childCount : -1)}");
+            builder.AppendLine($"- Game Parent Childs: {(gameParent != null ? gameParent.childCount : -1)}");
+            builder.AppendLine($"- Prime Parent Childs: {(primeParent != null ? primeParent.childCount : -1)}");
+            builder.AppendLine($"- Created UID Stack : {creatStack}");
+            builder.AppendLine($"- Log Count       : {logHistory.Count}");
+            builder.AppendLine($"- Is All Closed?    : {_IsAllCose}");
+            builder.AppendLine();
+
+            if (logHistory.Count > 0) {
+                int index = 0;
+                foreach (var log in logHistory) {
+                    builder.AppendLine($"[#{index}] UID:{log.UID} Level:{log.Level}");
+                    builder.AppendLine($"    Title  : {log.Title}");
+                    builder.AppendLine($"    Message: {log.Message}");
+                    builder.AppendLine();
+                    index++;
+                }
+            }
+            else {
+                builder.AppendLine("(Log history is empty)");
+            }
+
+            HLogger.Log(builder.ToString());
+#endif
+        }
 
 
         protected bool _IsAllCose => gameParent.childCount + logHistory.Count == 0;
-        #endregion
+#endregion
 
 
         protected override void Awake() {
