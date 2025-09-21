@@ -90,6 +90,9 @@ namespace HUtil.UI.Popup {
         protected VideoPopup vidInstnace = null;
 
         protected int creatStack = 0;
+#if ODIN_INSPECTOR
+        [Sirenix.OdinInspector.ShowInInspector]
+#endif
         protected Queue<LogQue> logHistory = new();
 
         public void DebugLogs() {
