@@ -1,4 +1,4 @@
-namespace Util.Sound {
+namespace HUtil.Sound {
     // Use real file name.
     public enum SFXList {
         #region ----- Common -----

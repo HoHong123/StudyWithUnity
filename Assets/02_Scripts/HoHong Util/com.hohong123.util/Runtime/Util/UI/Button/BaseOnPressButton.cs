@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Util.UI.ButtonUI {
+namespace HUtil.UI.ButtonUI {
     [RequireComponent(typeof(DelegateButton))]
     public abstract class BaseOnPressButton : MonoBehaviour, IDelegateButton {
         private void Awake() {

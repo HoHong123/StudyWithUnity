@@ -15,24 +15,24 @@
 
 using System;
 using UnityEngine;
-using Util.Logger;
-using Util.OdinCompat;
+using HUtil.Logger;
+using HUtil.Inspector;
 
 namespace HGame._2D.Map {
     public abstract partial class BaseEventPoint<T> : MonoBehaviour where T : MonoBehaviour {
 #if !ODIN_INSPECTOR
-        [HeaderOrTitle("Filter")]
+        [HTitle("Filter")]
         [SerializeField]
         protected bool useTag = true;
         [SerializeField]
         protected string targetTag;
 
-        [HeaderOrTitle("Collider")]
+        [HTitle("Collider")]
         [SerializeField]
         protected Collider2D eventCollider;
 
 #if UNITY_EDITOR
-        [HeaderOrTitle("Debug")]
+        [HTitle("Debug")]
         [SerializeField]
         protected bool useDebug = true;
         [SerializeField]

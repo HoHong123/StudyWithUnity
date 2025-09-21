@@ -1,11 +1,11 @@
 using UnityEngine;
-using Util.UI.Entity;
-using Util.OdinCompat;
+using HUtil.UI.Entity;
+using HUtil.Inspector;
 
-namespace Util.UI.ButtonUI {
+namespace HUtil.UI.ButtonUI {
     [RequireComponent(typeof(DelegateButton))]
     public class ScaleOnPressButton : BaseOnPressButton {
-        [HeaderOrTitle("Target")]
+        [HTitle("Target")]
         [SerializeField]
         ScalingUiEntity[] targets;
 

@@ -10,9 +10,9 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using Util.Logger;
+using HUtil.Logger;
 
-namespace Util.Pooling {
+namespace HUtil.Pooling {
     /// Unity static pool manager
     /// How to use ::
     /// This class is static pool manager.

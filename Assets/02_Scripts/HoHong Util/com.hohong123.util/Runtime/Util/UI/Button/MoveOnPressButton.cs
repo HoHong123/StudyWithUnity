@@ -1,11 +1,11 @@
 using UnityEngine;
-using Util.OdinCompat;
-using Util.UI.Entity;
+using HUtil.Inspector;
+using HUtil.UI.Entity;
 
-namespace Util.UI.ButtonUI {
+namespace HUtil.UI.ButtonUI {
     [RequireComponent(typeof(DelegateButton))]
     public class MoveOnPressButton : BaseOnPressButton {
-        [HeaderOrTitle("Target")]
+        [HTitle("Target")]
         [SerializeField]
         MovingUiEntity[] targets;
 

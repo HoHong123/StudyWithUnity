@@ -10,7 +10,7 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 
-namespace Util.Formattable {
+namespace HUtil.Formattable {
     public static class StringUtil {
         /// <summary>
         /// Extract query data.

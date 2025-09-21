@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Util.Pooling {
+namespace HUtil.Pooling {
     public interface IPoolCreate<TMono> where TMono : MonoBehaviour {
         public void OnCreate(TMono mono);
     }

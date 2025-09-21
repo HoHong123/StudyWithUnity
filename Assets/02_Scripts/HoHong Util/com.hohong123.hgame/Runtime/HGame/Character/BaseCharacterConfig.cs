@@ -7,11 +7,11 @@
 #endif
 
 using UnityEngine;
-using Util.OdinCompat;
+using HUtil.Inspector;
 
 namespace HGame.Game.Character {
     public class BaseCharacterConfig : ScriptableObject {
-        [HeaderOrTitle("Meta")]
+        [HTitle("Meta")]
         [SerializeField]
         protected int uid;
         [SerializeField]

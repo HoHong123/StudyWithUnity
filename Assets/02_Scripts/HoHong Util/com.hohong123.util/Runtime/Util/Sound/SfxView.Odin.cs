@@ -3,7 +3,7 @@ using System;
 using Sirenix.OdinInspector;
 #endif
 
-namespace Util.Sound {
+namespace HUtil.Sound {
     public partial class SFXView {
 #if ODIN_INSPECTOR
         [HideLabel]

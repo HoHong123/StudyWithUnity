@@ -1,4 +1,4 @@
-using Util.UI.Popup;
+using HUtil.UI.Popup;
 
 namespace SWU.UI.Popup {
     public class SwuPopupManager : PopupManager<SwuPopupManager> {

@@ -1,6 +1,6 @@
 using System;
 
-namespace Util.Sound {
+namespace HUtil.Sound {
     [Serializable]
     public partial class SFXView {
 #if !ODIN_INSPECTOR

@@ -1,11 +1,11 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using Util.OdinCompat;
+using HUtil.Inspector;
 
-namespace Util.UI.Popup {
+namespace HUtil.UI.Popup {
     public class ImagePopup : BasePopupUi {
-        [HeaderOrTitle("Viewport")]
+        [HTitle("Viewport")]
         [SerializeField]
         RectTransform viewRect;
         [SerializeField]
@@ -13,11 +13,11 @@ namespace Util.UI.Popup {
         [SerializeField]
         RectTransform rawRect;
 
-        [HeaderOrTitle("Image")]
+        [HTitle("Image")]
         [SerializeField]
         RawImage rawImg;
 
-        [HeaderOrTitle("Button")]
+        [HTitle("Button")]
         [SerializeField]
         Button panelBtn;
 

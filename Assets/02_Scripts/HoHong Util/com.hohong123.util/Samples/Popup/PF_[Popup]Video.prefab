@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 4422311554159280552}
   - component: {fileID: 514701289748748822}
   - component: {fileID: 5788370419306463193}
-  - component: {fileID: 5518088716574157725}
+  - component: {fileID: 2445844405540147871}
   m_Layer: 5
   m_Name: PF_[Popup]Video
   m_TagString: Untagged
@@ -313,7 +313,7 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
---- !u!114 &5518088716574157725
+--- !u!114 &2445844405540147871
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -322,22 +322,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4261103086013215356}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85d0095ba079db546b0af4f7f498921c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c2661c551f06d14eb1e496b82d5207c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   panel: {fileID: 4261103086013215356}
   closeBtn: {fileID: 90452808728670826}
   video: {fileID: 5788370419306463193}
-  render: {fileID: 0}
+  render: {fileID: 8400000, guid: 68c2e8b437f89a84e85fa043234c1a04, type: 2}
   panelBtn: {fileID: 901197728230068773}
 --- !u!1 &4786702527770919457
 GameObject:

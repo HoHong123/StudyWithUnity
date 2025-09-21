@@ -7,14 +7,14 @@
 #endif
 
 using UnityEngine;
-using Util.OdinCompat;
+using HUtil.Inspector;
 using HGame._2D.Map;
 
 namespace HGame._2D.Cam {
     [DisallowMultipleComponent]
     public partial class CameraFollow : MonoBehaviour {
 #if !ODIN_INSPECTOR
-        [HeaderOrTitle("Camear")]
+        [HTitle("Camear")]
         [SerializeField]
         Camera cam;
         [SerializeField, Range(0f, 1f)]
@@ -22,13 +22,13 @@ namespace HGame._2D.Cam {
         [SerializeField]
         float zPos = -10f;
 
-        [HeaderOrTitle("Target")]
+        [HTitle("Target")]
         [SerializeField]
         Transform target;
         [SerializeField]
         Transform originalTarget;
 
-        [HeaderOrTitle("Bounds")]
+        [HTitle("Bounds")]
         [SerializeField]
         MapBoundType boundType;
         [SerializeField]
@@ -37,7 +37,7 @@ namespace HGame._2D.Cam {
         Rect absolutBound;
 
 #if UNITY_EDITOR
-        [HeaderOrTitle("Debug")]
+        [HTitle("Debug")]
         [SerializeField]
         protected bool useDebug = true;
         [SerializeField]

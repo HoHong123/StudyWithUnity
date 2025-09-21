@@ -6,7 +6,7 @@
  */
 #endif
 
-using Util.Diagnosis;
+using HUtil.Diagnosis;
 
 public static class UiEvent {
     public static bool IsDragging { get; private set; } = false;

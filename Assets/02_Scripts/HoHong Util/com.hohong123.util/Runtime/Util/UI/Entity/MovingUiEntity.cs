@@ -1,24 +1,24 @@
 using System;
 using UnityEngine;
 using DG.Tweening;
-using Util.OdinCompat;
+using HUtil.Inspector;
 
 
-namespace Util.UI.Entity {
+namespace HUtil.UI.Entity {
     [Serializable]
     public partial class MovingUiEntity {
 #if !ODIN_INSPECTOR
-        [HeaderOrTitle("Target")]
+        [HTitle("Target")]
         [SerializeField]
         Transform target;
 
-        [HeaderOrTitle("Option")]
+        [HTitle("Option")]
         [SerializeField]
         bool useAnimation = false;
         [SerializeField]
         float animationDuration = 0.2f;
 
-        [HeaderOrTitle("Positions")]
+        [HTitle("Positions")]
         [Tooltip("MUST consider the pivot relation with parent.")]
         public bool UseAbsolutePosition = false;
         [SerializeField]

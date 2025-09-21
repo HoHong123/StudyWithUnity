@@ -1,6 +1,6 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using Util.Logger;
+using HUtil.Logger;
 
 namespace HGame.Game.Flow {
     // Add this module into 'GameManager.modules' list.

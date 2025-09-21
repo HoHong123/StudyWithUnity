@@ -23,9 +23,9 @@
 
 using System;
 using System.Collections.Generic;
-using Util.Logger;
+using HUtil.Logger;
 
-namespace Util.Pooling {
+namespace HUtil.Pooling {
     public abstract class BasePool<T> : IDisposable where T : class {
         protected readonly Stack<T> pool = new();
         protected readonly HashSet<T> activatedPool = new();

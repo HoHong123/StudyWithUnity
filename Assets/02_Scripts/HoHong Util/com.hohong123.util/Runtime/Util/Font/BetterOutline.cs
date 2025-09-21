@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Util.Font {
+namespace HUtil.Font {
     [RequireComponent(typeof(Text))]
     public class BetterOutline : Shadow {
         private List<UIVertex> m_Verts = new List<UIVertex>();

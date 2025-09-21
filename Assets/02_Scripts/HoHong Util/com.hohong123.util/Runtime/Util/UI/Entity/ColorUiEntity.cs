@@ -6,10 +6,10 @@ using System;
 using Util.OdinCompat;
 #endif
 
-namespace Util.UI.Entity {
+namespace HUtil.UI.Entity {
     public partial class ColorUiEntity {
 #if !ODIN_INSPECTOR
-        [HeaderOrTitle("Option")]
+        [HTitle("Option")]
         [SerializeField]
         bool changeSprite = false;
         [SerializeField]
@@ -17,7 +17,7 @@ namespace Util.UI.Entity {
         [SerializeField]
         float animationDuration = 0.2f;
 
-        [HeaderOrTitle("Color")]
+        [HTitle("Color")]
         [SerializeField]
         MaskableGraphic graphic;
         [SerializeField]
@@ -25,7 +25,7 @@ namespace Util.UI.Entity {
         [SerializeField]
         Color targetColor;
 
-        [HeaderOrTitle("Sprite")]
+        [HTitle("Sprite")]
         [SerializeField]
         Image image;
         [SerializeField]

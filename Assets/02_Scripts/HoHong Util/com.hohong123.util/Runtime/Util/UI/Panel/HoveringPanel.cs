@@ -16,7 +16,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Util.UI.Panel {
+namespace HUtil.UI.Panel {
     public class HoveringPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
         CancellationTokenSource hoverCts;
 

@@ -13,19 +13,19 @@
 #endif
 
 using UnityEngine;
-using Util.Collection;
-using Util.OdinCompat;
+using HUtil.Collection;
+using HUtil.Inspector;
 
 namespace HGame._2D.View {
     public partial class ParallexLayer : MonoBehaviour {
 #if !ODIN_INSPECTOR
-        [HeaderOrTitle("Camera")]
+        [HTitle("Camera")]
         [SerializeField]
         Camera cam;
 
         Transform camTran;
 
-        [HeaderOrTitle("Motion")]
+        [HTitle("Motion")]
         [SerializeField]
         bool useParallaxFollow = true;
         [SerializeField]
@@ -34,7 +34,7 @@ namespace HGame._2D.View {
 
         Vector3 preCamPos;
 
-        [HeaderOrTitle("Tile")]
+        [HTitle("Tile")]
         [SerializeField]
         bool randomGap = false;
         [SerializeField]

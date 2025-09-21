@@ -1,13 +1,13 @@
 using System;
 using UnityEngine;
-using Util.OdinCompat;
+using HUtil.Inspector;
 
-namespace Util.UI.ScrollView {
+namespace HUtil.UI.ScrollView {
     [Serializable]
     public class HorizontalRecycleView<TCellView, TCellData> : BaseRecycleView<TCellView, TCellData>, IRecycleView
         where TCellData : BaseRecycleCellData
         where TCellView : BaseRecycleCellView<TCellData> {
-        [HeaderOrTitle("Cell View")]
+        [HTitle("Cell View")]
         [SerializeField]
         float spacing = 10f;
         [SerializeField]

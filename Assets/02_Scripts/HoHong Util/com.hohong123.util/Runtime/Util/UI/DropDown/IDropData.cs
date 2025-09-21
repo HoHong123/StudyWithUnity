@@ -1,3 +1,3 @@
-namespace Util.UI.Drop {
+namespace HUtil.UI.Drop {
     public interface IDropData { }
 }

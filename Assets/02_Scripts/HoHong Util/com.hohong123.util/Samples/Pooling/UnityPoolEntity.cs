@@ -1,6 +1,6 @@
 using System;
 
-namespace Util.Pooling {
+namespace HUtil.Pooling {
     [Serializable]
     public class UnityPoolEntity {
         public int Key;

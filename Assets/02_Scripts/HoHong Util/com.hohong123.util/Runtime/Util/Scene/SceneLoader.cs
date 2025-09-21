@@ -15,9 +15,9 @@ using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Util.Logger;
+using HUtil.Logger;
 
-namespace Util.Scene {
+namespace HUtil.Scene {
     public static class SceneLoader {
         public static event Action OnSceneLoaded;
         public static event Action OnSceneUnloaded;

@@ -1,14 +1,14 @@
 using System;
 using UnityEngine;
-using Util.OdinCompat;
+using HUtil.Inspector;
 
-namespace Util.UI.ScrollView {
+namespace HUtil.UI.ScrollView {
     [Serializable]
     public class GridRecycleView<TCellView, TCellData> : BaseRecycleView<TCellView, TCellData>, IRecycleView
         where TCellData : BaseRecycleCellData
         where TCellView : BaseRecycleCellView<TCellData> {
 
-        [HeaderOrTitle("Grid Settings")]
+        [HTitle("Grid Settings")]
         [SerializeField]
         bool isHorizontal = true;
         [SerializeField]
@@ -16,7 +16,7 @@ namespace Util.UI.ScrollView {
         [SerializeField]
         Vector2 cellSize = new Vector2(100f, 100f);
 
-        [HeaderOrTitle("Grid Line Control")]
+        [HTitle("Grid Line Control")]
         [SerializeField]
         bool useFixedCount = false;
 #if ODIN_INSPECTOR

@@ -1,11 +1,11 @@
 using System;
 using UnityEngine;
 using UnityEngine.Audio;
-using Util.Core;
-using Util.Logger;
-using Util.OdinCompat;
+using HUtil.Core;
+using HUtil.Logger;
+using HUtil.Inspector;
 
-namespace Util.Sound {
+namespace HUtil.Sound {
     public partial class SoundManager : SingletonBehaviour<SoundManager> {
         [Serializable]
         public class SoundItem {
@@ -18,7 +18,7 @@ namespace Util.Sound {
             }
         }
 
-        [HeaderOrTitle("Meta Data")]
+        [HTitle("Meta Data")]
         [SerializeField]
         string path = "Sounds/";
         [SerializeField]
@@ -26,11 +26,11 @@ namespace Util.Sound {
         [SerializeField]
         string bgmPath = "BGM/";
 
-        [HeaderOrTitle("Audio Mixer")]
+        [HTitle("Audio Mixer")]
         [SerializeField]
         AudioMixer audioMix;
 
-        [HeaderOrTitle("Audio Sources")]
+        [HTitle("Audio Sources")]
         [SerializeField]
         AudioSource sfxAudio;
         [SerializeField]

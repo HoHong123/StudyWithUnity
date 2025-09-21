@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Util.Logger {
+namespace HUtil.Logger {
     public class HLogger : MonoBehaviour {
         const int MAX_QUE_SIZE = 1000;
 

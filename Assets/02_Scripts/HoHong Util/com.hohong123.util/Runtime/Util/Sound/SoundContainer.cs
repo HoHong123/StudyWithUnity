@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace Util.Sound {
+namespace HUtil.Sound {
     [Serializable]
     public class SoundContainer {
         public List<SFXView> Clips = new();

@@ -2,24 +2,24 @@ using System;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using DG.Tweening;
-using Util.OdinCompat;
+using HUtil.Inspector;
 
 
-namespace Util.UI.Entity {
+namespace HUtil.UI.Entity {
     [Serializable]
     public partial class ScalingUiEntity {
 #if !ODIN_INSPECTOR
-        [HeaderOrTitle("Target")]
+        [HTitle("Target")]
         [SerializeField]
         Transform target;
 
-        [HeaderOrTitle("Option")]
+        [HTitle("Option")]
         [SerializeField]
         bool useAnimation = false;
         [SerializeField]
         float animationDuration = 0.2f;
 
-        [HeaderOrTitle("Scales")]
+        [HTitle("Scales")]
         [Tooltip("MUST consider the pivot relation with parent.")]
         public bool UseAbsoluteScale = false;
         [SerializeField]

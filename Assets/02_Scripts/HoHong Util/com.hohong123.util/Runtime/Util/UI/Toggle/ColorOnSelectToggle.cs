@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Util.OdinCompat;
-using Util.UI.Entity;
+using HUtil.Inspector;
+using HUtil.UI.Entity;
 
-namespace Util.UI.ToggleUI {
+namespace HUtil.UI.ToggleUI {
     public class ColorOnSelectToggle : BaseCustomToggle {
-        [HeaderOrTitle("Targets")]
+        [HTitle("Targets")]
         [SerializeField]
         ColorUiEntity[] targets;
 

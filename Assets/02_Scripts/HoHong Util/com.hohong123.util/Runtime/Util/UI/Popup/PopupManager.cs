@@ -20,15 +20,15 @@
  * =========================================================
  */
 #endif
-
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Util.Logger;
-using Util.Core;
-using Util.OdinCompat;
+using HUtil.Logger;
+using HUtil.Core;
+using HUtil.Inspector;
+using HUtil.UI.Spinner;
 
-namespace Util.UI.Popup {
+namespace HUtil.UI.Popup {
     public abstract class PopupManager<T> : SingletonBehaviour<T> where T : PopupManager<T> {
         #region Class
         [Serializable]
@@ -58,12 +58,18 @@ namespace Util.UI.Popup {
         }
         #endregion
 
+
         #region Member
-        [HeaderOrTitle("UI")]
+        #region Static
+        protected static SpinnerCtrl spinner;
+        public static SpinnerCtrl Spinner => spinner;
+        #endregion
+
+        [HTitle("UI")]
         [SerializeField]
         protected GameObject background;
 
-        [HeaderOrTitle("Prefab")]
+        [HTitle("Prefab")]
         [SerializeField]
         protected TextPopup textPrefab;
         [SerializeField]
@@ -71,13 +77,15 @@ namespace Util.UI.Popup {
         [SerializeField]
         protected VideoPopup videoPrefab;
 
-        [HeaderOrTitle("Parents")]
+        [HTitle("Parents")]
         [SerializeField]
         protected Transform logParent;
         [SerializeField]
         protected Transform gameParent;
+        [SerializeField]
+        protected Transform primeParent;
 
-        [HeaderOrTitle("Logs")]
+        [HTitle("Logs")]
         [SerializeField]
         protected Queue<LogQue> logHistory = new();
 
@@ -90,6 +98,12 @@ namespace Util.UI.Popup {
 
         protected bool _IsAllCose => gameParent.childCount + logHistory.Count == 0;
         #endregion
+
+
+        protected override void Awake() {
+            base.Awake();
+            spinner = GetComponent<SpinnerCtrl>();
+        }
 
 
         public void ShowLog(PopLevel level, string title, string message, Action onClickCancel = null) {

@@ -8,12 +8,12 @@
 #endif
 
 using UnityEngine;
-using Util.OdinCompat;
+using HUtil.Inspector;
 
 namespace HGame._2D.Map {
     [DisallowMultipleComponent]
     public class Collider2DBoundSource : MonoBehaviour, IWorldBoundSource {
-        [HeaderOrTitle("Boundary")]
+        [HTitle("Boundary")]
         [SerializeField]
         Collider2D coll2D;
 

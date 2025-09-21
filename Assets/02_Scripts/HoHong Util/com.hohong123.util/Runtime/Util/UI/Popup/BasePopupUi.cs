@@ -1,16 +1,16 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using Util.OdinCompat;
-using Util.UI.Panel;
+using HUtil.Inspector;
+using HUtil.UI.Panel;
 
-namespace Util.UI.Popup {
+namespace HUtil.UI.Popup {
     public class BasePopupUi : MonoBehaviour, IBasicPanel {
-        [HeaderOrTitle("Panel")]
+        [HTitle("Panel")]
         [SerializeField]
         protected GameObject panel;
 
-        [HeaderOrTitle("UI")]
+        [HTitle("UI")]
         [SerializeField]
         protected Button closeBtn;
 
@@ -20,6 +20,7 @@ namespace Util.UI.Popup {
 
 
         protected virtual void Start() {
+            OnClickCancel += Close;
             closeBtn.onClick.AddListener(() => OnClickCancel?.Invoke());
         }
 

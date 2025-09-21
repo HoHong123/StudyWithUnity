@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Util.Pooling {
+namespace HUtil.Pooling {
     [Serializable]
     public abstract class PoolableMono : MonoBehaviour {
         public abstract void OnCreate(PoolableMono mono);

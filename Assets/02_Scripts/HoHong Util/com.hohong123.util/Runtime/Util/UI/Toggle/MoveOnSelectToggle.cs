@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using Util.UI.Entity;
-using Util.OdinCompat;
+using HUtil.UI.Entity;
+using HUtil.Inspector;
 
-namespace Util.UI.ToggleUI {
+namespace HUtil.UI.ToggleUI {
     [RequireComponent(typeof(Toggle))]
     public class MoveOnSelectToggle : BaseCustomToggle {
-        [HeaderOrTitle("Targets")]
+        [HTitle("Targets")]
         [SerializeField]
         MovingUiEntity[] targets;
 

@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 8917186977695379224}
   - component: {fileID: 4148451678482808005}
   m_Layer: 5
-  m_Name: Scroll View
+  m_Name: SV_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -562,7 +562,7 @@ GameObject:
   - component: {fileID: 8497272577866761384}
   - component: {fileID: 3668140915177651463}
   - component: {fileID: 6756775460837024687}
-  - component: {fileID: 2196148407348742874}
+  - component: {fileID: 1850080393254962905}
   m_Layer: 5
   m_Name: PF_[Popup]Img
   m_TagString: Untagged
@@ -629,7 +629,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2196148407348742874
+--- !u!114 &1850080393254962905
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -638,18 +638,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5759216715660794595}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c6ae82fa82f9dc47979bb5c8c36f679, type: 3}
+  m_Script: {fileID: 11500000, guid: 6dad36e1706e2f4458a18265979a4a09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   panel: {fileID: 5759216715660794595}
   closeBtn: {fileID: 7970686615246125260}
   viewRect: {fileID: 1367155677466078038}
@@ -746,7 +737,7 @@ GameObject:
   - component: {fileID: 1392634293827498690}
   - component: {fileID: 6306742305976379861}
   m_Layer: 5
-  m_Name: Scrollbar Vertical
+  m_Name: SB_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -854,7 +845,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 3616050865077346289}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.77396023
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

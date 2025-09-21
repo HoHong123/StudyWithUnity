@@ -438,18 +438,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2837864980078794451}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19bd9ba7967bb4e4283bc43f882a91d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 4854b7402765bc14b978b20b63bfaeea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   panel: {fileID: 2837864980078794451}
   closeBtn: {fileID: 8382558283079031117}
   titleTxt: {fileID: 8586664430913952851}

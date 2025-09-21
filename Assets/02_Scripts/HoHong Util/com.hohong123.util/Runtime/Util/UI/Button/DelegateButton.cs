@@ -11,7 +11,7 @@ using System;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-namespace Util.UI.ButtonUI {
+namespace HUtil.UI.ButtonUI {
         public class DelegateButton : Button, IPointerDownHandler, IPointerUpHandler {
         public Action OnPointDown;
         public Action OnPointUp;

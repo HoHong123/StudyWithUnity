@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Util.Pooling {
+namespace HUtil.Pooling {
     public class GameObjectPool : BasePool<GameObject> {
         readonly GameObject prefab;
         readonly Transform parent;

@@ -7,16 +7,16 @@
 #endif
 
 using UnityEngine;
-using Util.Core;
-using Util.OdinCompat;
+using HUtil.Core;
+using HUtil.Inspector;
 
 namespace HGame._2D.Cam {
     public class CameraManager : SingletonBehaviour<CameraManager> {
-        [HeaderOrTitle("Camera Follow")]
+        [HTitle("Camera Follow")]
         [SerializeField]
         CameraFollow follow;
 
-        [HeaderOrTitle("Camera Effect")]
+        //[HTitle("Camera Effect")]
         // Add effect modules
 
         public void ResetFollow() => follow.ResetTarget();

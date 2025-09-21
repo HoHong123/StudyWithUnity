@@ -10,13 +10,13 @@
 using HGame._2D.Map;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using Util.OdinCompat;
+using HUtil.Inspector;
 #endif
 
 namespace HGame._2D.Cam {
     public partial class CameraFollow : MonoBehaviour {
 #if ODIN_INSPECTOR
-        [HeaderOrTitle("Camear")]
+        [HTitle("Camear")]
         [SerializeField]
         Camera cam;
         [SerializeField, Range(0f, 1f)]
@@ -24,13 +24,13 @@ namespace HGame._2D.Cam {
         [SerializeField]
         float zPos = -10f;
 
-        [HeaderOrTitle("Target")]
+        [HTitle("Target")]
         [SerializeField]
         Transform target;
         [SerializeField, Required]
         Transform originalTarget;
 
-        [HeaderOrTitle("Bounds")]
+        [HTitle("Bounds")]
         [SerializeField]
         MapBoundType boundType;
         [SerializeField, ShowIf("boundType", MapBoundType.WorldBox)]
@@ -39,7 +39,7 @@ namespace HGame._2D.Cam {
         Rect absolutBound;
 
 #if UNITY_EDITOR
-        [HeaderOrTitle("Debug")]
+        [HTitle("Debug")]
         [SerializeField]
         protected bool useDebug = true;
         [SerializeField, ShowIf("useDebug")]

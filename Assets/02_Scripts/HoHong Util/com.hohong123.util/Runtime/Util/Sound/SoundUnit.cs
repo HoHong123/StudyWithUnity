@@ -1,9 +1,9 @@
 using UnityEngine;
-using Util.OdinCompat;
+using HUtil.Inspector;
 
-namespace Util.Sound {
+namespace HUtil.Sound {
     public class SoundUnit : MonoBehaviour {
-        [HeaderOrTitle("Container")]
+        [HTitle("Container")]
         [SerializeField]
 #if ODIN_INSPECTOR
         [Sirenix.OdinInspector.InlineProperty, Sirenix.OdinInspector.HideLabel]

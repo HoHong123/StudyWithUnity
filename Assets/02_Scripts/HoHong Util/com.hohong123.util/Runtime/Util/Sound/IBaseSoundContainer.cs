@@ -1,4 +1,4 @@
-namespace Util.Sound {
+namespace HUtil.Sound {
     public interface IBaseSoundContainer {
         public void SetClipDictionary();
     }

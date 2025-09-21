@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Util.Pooling {
+namespace HUtil.Pooling {
     public class ComponentPool<T> : BasePool<T> where T : MonoBehaviour {
         private readonly T prefab;
         private readonly Transform parent;

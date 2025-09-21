@@ -2,32 +2,32 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Util.UI.Panel;
-using Util.OdinCompat;
+using HUtil.UI.Panel;
+using HUtil.Inspector;
 
-namespace Util.UI.Drop {
+namespace HUtil.UI.Drop {
     [RequireComponent(typeof(Toggle))]
     [RequireComponent(typeof(RectTransform))]
     public abstract partial class BaseDropDown<TData, TUnit> : MonoBehaviour, IBasicPanel
         where TData : IDropData, new()
         where TUnit : MonoBehaviour, IDropUnit {
 #if !ODIN_INSPECTOR
-        [HeaderOrTitle("Data")]
+        [HTitle("Data")]
         [SerializeField]
         protected List<TData> datas = new();
 
-        [HeaderOrTitle("Setting")]
+        [HTitle("Setting")]
         [SerializeField]
         [Tooltip("Preset position setting. (Not mandatory)")]
         protected DirectionType direction = DirectionType.Down;
 
-        [HeaderOrTitle("Data")]
+        [HTitle("Data")]
         [SerializeField]
         protected Toggle dropTg;
         [SerializeField]
         protected RectTransform rect;
 
-        [HeaderOrTitle("Data")]
+        [HTitle("Data")]
         [SerializeField]
         protected ToggleGroup tableTgg;
         [SerializeField]
@@ -39,7 +39,7 @@ namespace Util.UI.Drop {
         [SerializeField]
         protected Vector2 tableOffset;
 
-        [HeaderOrTitle("Data")]
+        [HTitle("Data")]
         [SerializeField]
         protected GameObject unitPrefab;
         [SerializeField]

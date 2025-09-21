@@ -3,13 +3,13 @@ using Sirenix.OdinInspector;
 using System.Collections.Generic;
 #endif
 using UnityEngine;
-using Util.Core;
-using Util.OdinCompat;
+using HUtil.Core;
+using HUtil.Inspector;
 
-namespace Util.Sound {
+namespace HUtil.Sound {
     public partial class SoundManager : SingletonBehaviour<SoundManager> {
 #if ODIN_INSPECTOR
-        [HeaderOrTitle("Sound Data Allocation")]
+        [HTitle("Sound Data Allocation")]
         [DictionaryDrawerSettings(KeyLabel = "Audio Code", ValueLabel = "Audio Clip")]
         [SerializeField]
         Dictionary<int, SoundItem> soundDic = new();

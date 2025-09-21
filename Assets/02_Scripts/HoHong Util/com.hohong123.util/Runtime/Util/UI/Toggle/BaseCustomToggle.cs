@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-namespace Util.UI.ToggleUI {
+namespace HUtil.UI.ToggleUI {
     public abstract class BaseCustomToggle : MonoBehaviour, IDelegateToggle, IPointerDownHandler, IPointerUpHandler {
         [Header("Event Timing")]
         [SerializeField]

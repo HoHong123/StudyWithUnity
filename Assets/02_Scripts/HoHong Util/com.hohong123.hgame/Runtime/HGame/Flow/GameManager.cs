@@ -15,13 +15,13 @@ using System.Threading;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using Util.Core;
-using Util.OdinCompat;
+using HUtil.Core;
+using HUtil.Inspector;
 
 namespace HGame.Game.Flow {
     public class GameManager<TSelf> : SingletonBehaviour<TSelf>
     where TSelf : GameManager<TSelf> {
-        [HeaderOrTitle("Flow")]
+        [HTitle("Flow")]
         [SerializeField]
         protected bool autoPrepareOnStart = true;
         [SerializeField]

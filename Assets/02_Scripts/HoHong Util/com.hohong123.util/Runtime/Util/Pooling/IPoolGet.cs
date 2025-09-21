@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Util.Pooling {
+namespace HUtil.Pooling {
     public interface IPoolGet<TMono> where TMono : MonoBehaviour {
         public void OnGet(TMono mono);
     }

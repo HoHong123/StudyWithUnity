@@ -12,16 +12,15 @@
  * =========================================================
  */
 #endif
-
-using System;
-using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
-using Util.Scene;
-using UnityEngine;
-using Util.Logger;
 #if UNITY_EDITOR
 using System.Text;
 #endif
+using System;
+using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using UnityEngine;
+using HUtil.Scene;
+using HUtil.Inspector;
 
 /// <summary>
 /// Global spinner UI script.
@@ -30,16 +29,18 @@ using System.Text;
 /// 2. Save Spinner UI prefab in 'Resources' file.
 /// 3. Input Spinner prefab address into 'spinnerAddress' string variable.
 /// </summary>
-namespace Util.UI.Spinner {
-    public static class Spinner {
-        static string spinnerAddress = "UI/Spinner";
-        static GameObject spinner;
-        static readonly Dictionary<object, int> callers = new();
+namespace HUtil.UI.Spinner {
+    public class SpinnerCtrl : MonoBehaviour {
+        [HTitle("Prefab")]
+        [SerializeField]
+        GameObject spinner;
 
-        public static bool IsVisible { get; private set; } = false;
+        readonly Dictionary<object, int> callers = new();
 
-        public static IReadOnlyDictionary<object, int> ActiveCallers => callers;
-        public static string GetCallerData() {
+        public bool IsVisible { get; private set; } = false;
+
+        public IReadOnlyDictionary<object, int> ActiveCallers => callers;
+        public string GetCallerData() {
 #if UNITY_EDITOR
         if (callers.Count == 0) {
             return "[Spinner] No active callers.";
@@ -55,16 +56,13 @@ namespace Util.UI.Spinner {
         }
 
 
-        static Spinner() {
-            spinner = Resources.Load<GameObject>(spinnerAddress);
-            if (!spinner)
-                HLogger.Error($"Cannot find 'Spinner' prefab in '{spinnerAddress}'");
+        private void Awake() {
             SceneLoader.OnSceneLoaded += CleanUp;
             SceneLoader.OnSceneUnloaded += CleanUp;
         }
 
 
-        public static void Show(object caller) {
+        public void Show(object caller) {
             if (callers.ContainsKey(caller)) {
                 callers[caller]++;
             }
@@ -74,29 +72,29 @@ namespace Util.UI.Spinner {
 
             if (!IsVisible) {
                 IsVisible = true;
-                spinner.SetActive(true);
+                spinner?.SetActive(true);
             }
         }
 
-        public static async UniTask Show(float second, object caller) {
+        public async UniTask Show(float second, object caller) {
             Show(caller);
             await UniTask.Delay(TimeSpan.FromSeconds(second));
             Hide(caller);
         }
 
-        public static async UniTask Show(int tick, object caller) {
+        public async UniTask Show(int tick, object caller) {
             Show(caller);
             await UniTask.Delay(tick);
             Hide(caller);
         }
 
-        public static async UniTask Show(Func<UniTask> taskFunc, object caller) {
+        public async UniTask Show(Func<UniTask> taskFunc, object caller) {
             Show(caller);
             await taskFunc();
             Hide(caller);
         }
 
-        public static void Hide(object caller) {
+        public void Hide(object caller) {
             if (!callers.ContainsKey(caller))
                 return;
 
@@ -112,7 +110,7 @@ namespace Util.UI.Spinner {
         }
 
 
-        public static void CleanUp() {
+        public void CleanUp() {
             var keysToRemove = new List<object>();
 
             foreach (var key in callers.Keys) {
@@ -143,7 +141,7 @@ namespace Util.UI.Spinner {
  * 3. 비동기 처리도 진행합니다.
  * 4. **팝업 매니저**가 반드시 필요합니다.
  * Ps. 사용법은 'SpinnerTester.cs'를 확인해주세요.
- * ===============================================
+ * ------------------------------------------------------------------------
  * 1. This is a script written to use the spinner globally.
  * 1-1. It was written to exclude unnecessary singleton access.
  * 2. The spinner tracks all objects that called it.
@@ -151,15 +149,23 @@ namespace Util.UI.Spinner {
  * 3. It also performs asynchronous processing.
  * 4. A popup manager is absolutely necessary.
  * Ps. Check 'SpinnerTester.cs' for tutorial.
+ * 
  * ===============================================
  * @Jason - PKH 22. 07. 25
  * 1. 씬전환 및 콜러의 값이 의도치않게 제거되었을 경우, 스피너에서 이를 확인하여 해당 호출자 정보를 관리하는 기능 추가
  * 1-1. CleanUp함수
  * 2. CleanUp이 씬로드/씬언로드 프로세스가 진행되면 자동으로 활성화되도록 설정
+ * 
  * ===============================================
  * @Jason - PKH 18. 09. 25
  * 1. 스피너 전체 수정했습니다.
  * 2. 스피너 프리팹을 생성자에서 호출하여 PopupManager와 종속관계를 제거했습니다.
  * + 패키지 사용시 종속관계로 인한 오류를 최소화 하기 위해 조치했습니다.
+ * 
+ * ===============================================
+ * @Jason - PKH 21. 09. 25
+ * 1. 스피너를 컴포넌트로 설정했습니다.
+ * 2. PopupManager에 종속되며, 팝업매니저의 예시 프리팹에 매니저와 동일한 오브젝트에 할당됩니다.
+ * 3. PopupManager가 Awake시 static 스피너 변수를 할당합니다.
  */
 #endif

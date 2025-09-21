@@ -8,7 +8,7 @@
 
 using UnityEngine;
 
-namespace Util.Formattable {
+namespace HUtil.Formattable {
     public static class VectorUtil {
         public static Vector2 GetRandomPositionWithin(this RectTransform rectTransform, Vector2 padding = default) {
             Vector2 size = rectTransform.rect.size;

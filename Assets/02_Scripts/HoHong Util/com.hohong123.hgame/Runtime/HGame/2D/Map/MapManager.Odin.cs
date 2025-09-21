@@ -32,19 +32,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
-using Util.Core;
-using Util.UI.Panel;
-using Util.OdinCompat;
+using HUtil.Core;
+using HUtil.UI.Panel;
+using HUtil.Inspector;
 #endif
 
 namespace HGame._2D.Map {
     public partial class MapManager : SingletonBehaviour<MapManager> {
 #if ODIN_INSPECTOR
-        [HeaderOrTitle("Camera")]
+        [HTitle("Camera")]
         [SerializeField]
         Camera cam;
 
-        [HeaderOrTitle("Bounds")]
+        [HTitle("Bounds")]
         [SerializeField]
         MapBoundType boundType;
         [SerializeField]
@@ -56,7 +56,7 @@ namespace HGame._2D.Map {
         [SerializeField, ShowIf("boundType", MapBoundType.Absolute)]
         Rect absolutBound;
 
-        [HeaderOrTitle("UI")]
+        [HTitle("UI")]
         [SerializeField]
         RectTransform camArea;
         [SerializeField]
@@ -64,7 +64,7 @@ namespace HGame._2D.Map {
         [SerializeField]
         ProxyPanel mapPanel;
 
-        [HeaderOrTitle("Marker")]
+        [HTitle("Marker")]
         [SerializeField]
         Image markerPrefab;
         [SerializeField]
@@ -72,13 +72,13 @@ namespace HGame._2D.Map {
         [SerializeField, Tooltip("Must be a child of map")]
         Transform markerParent;
 
-        [HeaderOrTitle("Minimap Auto Fit")]
+        [HTitle("Minimap Auto Fit")]
         [SerializeField]
         bool autoFitMinimapAspect = true;
         [SerializeField, ShowIf("autoFitMinimapAspect")]
         Vector2 fitPadding = new Vector2(8, 8);
 
-        [HeaderOrTitle("Options")]
+        [HTitle("Options")]
         [SerializeField]
         bool isYAxisUp = true;
         [SerializeField]

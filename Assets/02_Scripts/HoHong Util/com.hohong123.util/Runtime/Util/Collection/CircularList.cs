@@ -11,9 +11,9 @@ using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
-using Util.Logger;
+using HUtil.Logger;
 
-namespace Util.Collection {
+namespace HUtil.Collection {
     [Serializable]
     public class CircularList<T> : IEnumerable<T> {
         int index = 0;

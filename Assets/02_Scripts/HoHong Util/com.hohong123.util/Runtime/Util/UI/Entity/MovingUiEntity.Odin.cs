@@ -1,24 +1,24 @@
 #if ODIN_INSPECTOR
 using UnityEngine;
 using Sirenix.OdinInspector;
-using Util.OdinCompat;
+using HUtil.Inspector;
 #endif
 
-namespace Util.UI.Entity {
+namespace HUtil.UI.Entity {
     public partial class MovingUiEntity {
 #if ODIN_INSPECTOR
-        [HeaderOrTitle("Target")]
+        [HTitle("Target")]
         [SerializeField]
         [OnValueChanged(nameof(_Init))]
         Transform target;
 
-        [HeaderOrTitle("Option")]
+        [HTitle("Option")]
         [SerializeField]
         bool useAnimation = false;
         [ShowIf(nameof(useAnimation)), SerializeField]
         float animationDuration = 0.2f;
 
-        [HeaderOrTitle("Positions")]
+        [HTitle("Positions")]
         [InfoBox("MUST consider the pivot relation with parent.")]
         public bool UseAbsolutePosition = false;
         [SerializeField]

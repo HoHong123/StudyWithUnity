@@ -8,9 +8,9 @@
 
 using System;
 using System.Collections.Generic;
-using Util.Logger;
+using HUtil.Logger;
 
-namespace Util.Collection {
+namespace HUtil.Collection {
     public static class CollectionUtil {
         public static List<T> SafeGetRange<T>(this List<T> list, int index, int count) {
             if (list == null || index >= list.Count) return new List<T>();

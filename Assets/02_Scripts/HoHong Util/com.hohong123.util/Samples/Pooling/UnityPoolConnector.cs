@@ -8,11 +8,11 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using Util.OdinCompat;
+using HUtil.Inspector;
 
-namespace Util.Pooling {
+namespace HUtil.Pooling {
     public partial class UnityPoolConnector : MonoBehaviour {
-        [HeaderOrTitle("Entities")]
+        [HTitle("Entities")]
         [SerializeField]
 #if ODIN_INSPECTOR
         [Sirenix.OdinInspector.InfoBox("Must use 'IPoolable' prefab", Sirenix.OdinInspector.InfoMessageType.Warning)]

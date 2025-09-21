@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Util.UI.ScrollView;
+using HUtil.UI.ScrollView;
 
 public class VlgTesterScroller : VlgRecycleView<DemoCellView, DemoCellData> {
     public int dataSize = 500;

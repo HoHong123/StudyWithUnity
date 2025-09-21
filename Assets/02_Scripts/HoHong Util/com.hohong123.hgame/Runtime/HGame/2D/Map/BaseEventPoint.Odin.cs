@@ -16,24 +16,24 @@
 #if ODIN_INSPECTOR
 using UnityEngine;
 using Sirenix.OdinInspector;
-using Util.OdinCompat;
+using HUtil.Inspector;
 #endif
 
 namespace HGame._2D.Map {
     public abstract partial class BaseEventPoint<T> : MonoBehaviour where T : MonoBehaviour {
 #if ODIN_INSPECTOR
-        [HeaderOrTitle("Filter")]
+        [HTitle("Filter")]
         [SerializeField]
         protected bool useTag = true;
         [SerializeField, ShowIf("useTag")]
         protected string targetTag;
 
-        [HeaderOrTitle("Collider")]
+        [HTitle("Collider")]
         [SerializeField, Required]
         protected Collider2D eventCollider;
 
 #if UNITY_EDITOR
-        [HeaderOrTitle("Debug")]
+        [HTitle("Debug")]
         [SerializeField]
         protected bool useDebug = true;
         [SerializeField, ShowIf("useDebug")]

@@ -1,6 +1,6 @@
 using System;
 
-namespace Util.Pooling {
+namespace HUtil.Pooling {
     public class ClassPool<T> : BasePool<T> where T : class, new() {
         public ClassPool(int initSize = 1,
             Action<T> onCreate = null, Action<T> onGet = null,

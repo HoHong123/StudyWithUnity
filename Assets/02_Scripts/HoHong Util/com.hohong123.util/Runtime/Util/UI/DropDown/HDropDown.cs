@@ -3,9 +3,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
-using Util.OdinCompat;
+using HUtil.Inspector;
 
-namespace Util.UI.Drop {
+namespace HUtil.UI.Drop {
     public class HDropDown : BaseDropDown<HDropDown.HData, HDropDown.HUnit> {
         #region Inner Class
         public class HData : IDropData {
@@ -13,7 +13,7 @@ namespace Util.UI.Drop {
             public Sprite Icon;
         }
         public class HUnit : BaseDropUnit {
-            [HeaderOrTitle("UI")]
+            [HTitle("UI")]
             [SerializeField]
             TMP_Text text;
             [SerializeField]
@@ -33,7 +33,7 @@ namespace Util.UI.Drop {
         }
         #endregion
 
-        [HeaderOrTitle("UI")]
+        [HTitle("UI")]
         [SerializeField]
         Image icon;
         [SerializeField]

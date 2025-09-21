@@ -12,12 +12,12 @@ using OdinBehaviourBase = Sirenix.OdinInspector.SerializedMonoBehaviour;
 using OdinBehaviourBase = UnityEngine.MonoBehaviour;
 #endif
 using UnityEngine;
-using Util.Logger;
-using Util.OdinCompat;
+using HUtil.Logger;
+using HUtil.Inspector;
 
-namespace Util.Core {
+namespace HUtil.Core {
     public class SingletonBehaviour<T> : OdinBehaviourBase where T : SingletonBehaviour<T> {
-        [HeaderOrTitle("Singleton")]
+        [HTitle("Singleton")]
         [SerializeField]
         bool dontDestroyOnLoad;
 

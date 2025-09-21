@@ -2,13 +2,13 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
-using Util.OdinCompat;
+using HUtil.Inspector;
 
-namespace Util.UI.Entity {
+namespace HUtil.UI.Entity {
     [Serializable]
     public partial class ColorUiEntity {
 #if ODIN_INSPECTOR
-        [HeaderOrTitle("Option")]
+        [HTitle("Option")]
         [SerializeField]
         bool changeSprite = false;
         [HideIf(nameof(changeSprite)), SerializeField]
@@ -16,7 +16,7 @@ namespace Util.UI.Entity {
         [ShowIf("@!this.changeSprite && this.useAnimation"), SerializeField]
         float animationDuration = 0.2f;
 
-        [HeaderOrTitle("Color")]
+        [HTitle("Color")]
         [OnValueChanged(nameof(_Init))]
         [HideIf(nameof(changeSprite))]
         [SerializeField]
@@ -28,7 +28,7 @@ namespace Util.UI.Entity {
         [SerializeField]
         Color targetColor;
 
-        [HeaderOrTitle("Sprite")]
+        [HTitle("Sprite")]
         [OnValueChanged(nameof(_Init))]
         [ShowIf(nameof(changeSprite))]
         [SerializeField]

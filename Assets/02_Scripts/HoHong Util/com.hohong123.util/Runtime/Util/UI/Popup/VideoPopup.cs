@@ -2,17 +2,17 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
-using Util.OdinCompat;
+using HUtil.Inspector;
 
-namespace Util.UI.Popup {
+namespace HUtil.UI.Popup {
     public class VideoPopup : BasePopupUi {
-        [HeaderOrTitle("Video")]
+        [HTitle("Video")]
         [SerializeField]
         VideoPlayer video;
         [SerializeField]
         RenderTexture render;
 
-        [HeaderOrTitle("Button")]
+        [HTitle("Button")]
         [SerializeField]
         Button panelBtn;
 

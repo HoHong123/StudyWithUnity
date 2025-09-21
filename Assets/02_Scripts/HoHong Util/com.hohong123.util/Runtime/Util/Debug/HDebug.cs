@@ -8,9 +8,9 @@
 #endif
 
 using System.Diagnostics;
-using Util.Logger;
+using HUtil.Logger;
 
-namespace Util.Diagnosis {
+namespace HUtil.Diagnosis {
     public static class HDebug {
         [Conditional("UNITY_EDITOR")]
         public static void LogCaller(string message = "") {

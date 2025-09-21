@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4246563530715500733}
   - component: {fileID: 4862575470191338008}
+  - component: {fileID: 2608711528422112079}
   - component: {fileID: 5112314321386245713}
   m_Layer: 5
   m_Name: PF_Spinner
@@ -25,7 +26,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877193308416921105}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -46,6 +47,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877193308416921105}
   m_CullTransparentMesh: 1
+--- !u!114 &2608711528422112079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877193308416921105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6ecae5ff08994428fbe7974db099c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinner: {fileID: 877193308416921105}
 --- !u!114 &5112314321386245713
 MonoBehaviour:
   m_ObjectHideFlags: 0

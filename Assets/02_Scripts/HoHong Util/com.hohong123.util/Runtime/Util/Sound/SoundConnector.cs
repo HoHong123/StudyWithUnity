@@ -3,7 +3,7 @@ using UnityEngine;
 using Util.Logger;
 #endif
 
-namespace Util.Sound {
+namespace HUtil.Sound {
     /// <summary>
     /// For UI element to interacte with 'SoundManager' using unity event listener.
     /// </summary>

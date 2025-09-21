@@ -6,9 +6,9 @@ using UnityEditor;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
-using Util.Logger;
+using HUtil.Logger;
 
-namespace Util.Editor {
+namespace HUtil.Editor {
     public class FileBrowser : OdinEditorWindow {
         [MenuItem("Data/HView/File Browser")]
         private static void Open() {
