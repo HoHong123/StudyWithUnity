@@ -529,14 +529,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9914acea61342214794f0297ccbacb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderVector2: {x: 0, y: 0}
+  vector2Slider: {x: 2.54, y: 5.56}
+  intSlider: 102
+  floatSlider: 0
   readOnly: 0
-  showIf: 1
+  showIf: 0
   showWhenTrue: 0
   hideIf: 0
   hideWhenTrue: 0
-  doubleUpValueChange: 6
-  onValueChange: 3
+  doubleUpValueChange: 0
+  onValueChange: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
